@@ -27,10 +27,7 @@ app.use(cookieParser());
 // ✅ FIXED CORS (IMPORTANT)
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000", // local frontend
-      "https://acadly-blue.vercel.app" // your deployed frontend
-    ],
+    origin: process.env.ALLOWED_ORIGINS.split(","),
     credentials: true,
   })
 );
